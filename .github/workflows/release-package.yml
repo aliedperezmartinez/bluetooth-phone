@@ -33,7 +33,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish UI
-        run: mvn --batch-mode assembly:single -DskipTests=true
+        run: |
+          mvn --batch-mode assembly:single -DskipTests=true
+          gh release upload ${{github.event.release.tag_name}} target/phone-ui-bin.zip
         working-directory: ui/
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
