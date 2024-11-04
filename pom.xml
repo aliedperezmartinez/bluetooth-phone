@@ -34,7 +34,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.5.1</version>
+                    <version>3.5.2</version>
                     <configuration combine.self="append">
                         <!--<argLine>-XX:+EnableDynamicAgentLoading</argLine>-->
                     </configuration>
