@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
         <junit.version>5.12.1</junit.version>
-        <mockito.version>5.15.2</mockito.version>
+        <mockito.version>5.17.0</mockito.version>
     </properties>
     <scm>
         <url>https://github.com/aliedperezmartinez/bluetooth-phone</url>
