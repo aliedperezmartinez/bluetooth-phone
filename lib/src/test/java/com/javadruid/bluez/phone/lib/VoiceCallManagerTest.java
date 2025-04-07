@@ -173,8 +173,6 @@ public class VoiceCallManagerTest {
     public void testOnCallRemoved() throws DBusException {
         final VoiceCallManager instance = newTestInstance();
         final Consumer<String> handler = mock(Consumer.class);
-        final String value = "value";
-        final String propertyName = "propertyChanged";
         doAnswer(i -> {
             final DBusSigHandler<CallRemoved> signalhandler = i.getArgument(2);
             signalhandler.handle(new CallRemoved(PATH, new DBusPath(PATH)));

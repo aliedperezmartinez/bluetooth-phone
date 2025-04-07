@@ -2,7 +2,6 @@ package com.javadruid.bluez.phone.lib;
 
 import com.javadruid.bluez.phone.lib.VoiceCall.VoiceCallState;
 import com.javadruid.bluez.phone.lib.interfaces.VoiceCall.DisconnectReason;
-import java.lang.reflect.Type;
 import java.time.Instant;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -10,7 +9,6 @@ import org.freedesktop.dbus.DBusAsyncReply;
 import org.freedesktop.dbus.DBusMap;
 import org.freedesktop.dbus.connections.impl.DBusConnection;
 import org.freedesktop.dbus.exceptions.DBusException;
-import org.freedesktop.dbus.interfaces.DBusInterface;
 import org.freedesktop.dbus.interfaces.DBusSigHandler;
 import org.freedesktop.dbus.interfaces.Properties;
 import org.freedesktop.dbus.messages.Message;
@@ -138,18 +136,4 @@ public class VoiceCallTest {
         return new VoiceCall(connection, PATH);
     }
 
-    private void mockObjectCall(final String methodName, Object result, Type type,
-            DBusInterface remoteObject, Object... parameters) throws DBusException {
-        mockObjectCall(remoteObject, methodName, parameters);
-        when(call.getReply()).thenReturn(message);
-        if (result != null) {
-            final Variant<?> variant = type != null? new Variant<>(result, type): new Variant<>(result);
-            when(message.getParameters()).thenReturn(new Object[]{variant});
-        }
-    }
-
-    private void mockObjectCall(DBusInterface remoteObject, final String methodName, Object... parameters) {
-        when(connection.callMethodAsync(remoteObject, methodName, parameters)).thenReturn(reply);
-        when(reply.getCall()).thenReturn(call);
-    }
 }
