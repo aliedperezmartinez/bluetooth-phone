@@ -11,7 +11,7 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <javafx.version>22.0.2</javafx.version>
+        <javafx.version>25-ea+20</javafx.version>
     </properties>
     <dependencies>
         <dependency>
